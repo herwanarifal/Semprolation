@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Seminar Proposal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lock">
+
+<canvas id="flowers"></canvas>
+
+<audio id="musik" loop>
+    <source src="msc.mp3" type="audio/mpeg">
+</audio>
+
+<!-- TOMBOL MUSIK -->
+<button id="musicBtn" class="music-btn" onclick="toggleMusic()">🔊</button>
+
+<!-- COVER -->
+<div id="cover" class="cover">
+    <div class="box">
+        <h2>Undangan</h2>
+        <h1>Seminar Proposal</h1>
+        <p>Kepada Teman-Teman</p>
+        <h3>Diharapkan Kehadirannya</h3>
+        <button onclick="bukaUndangan()">💌Buka Undangan💌</button>
+    </div>
+</div>
+
+<!-- SLIDE 1 -->
+<section class="slide">
+    <div class="box">
+        <h1>Assalamu’alaikum</h1>
+        <p>Saya yang mengundang:</p>
+
+        <div class="gold">Asince Fitri</div>
+
+        <p style="margin-top:6px; font-size:15px;">
+            NPM <strong>23754006</strong>
+        </p>
+
+        <p style="font-size:15px;">
+            Program Studi <strong>Agribisnis Pangan</strong>
+        </p>
+
+        <div class="foto-utama">
+            <img src="img/5.jpeg">
+        </div>
+    </div>
+</section>
+
+
+<!-- SLIDE 2 -->
+<section class="slide alt">
+    <div class="box">
+        <h1>📚 Seminar Proposal</h1>
+        <p>📅 Senin, 29 Desember 2025</p>
+        <p>⏰ 11.00 WIB – Selesai</p>
+        <p>📍 Politeknik Negeri Lampung</p>
+
+        <div id="countdown" class="countdown"></div>
+
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps?q=Politeknik+Negeri+Lampung&output=embed"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide">
+    <div class="box">
+        <h1>📸 Galeri Foto</h1>
+        <div class="galeri">
+            <img src="img/1.jpeg">
+            <img src="img/2.jpeg">
+            <img src="img/3.jpeg">
+            <img src="img/4.jpeg">
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide alt">
+    <div class="box">
+        <h1>🤍Terima Kasih🤍</h1>
+
+        <p style="margin-top:20px; line-height:1.8; font-size:16px;">
+            Satu babak baru saja selesai, tapi perjalanan panjang baru saja dimulai✨
+        </p>
+
+        <p style="margin-top:15px; line-height:1.8; font-size:16px;">
+            Satu langkah lebih dekat menuju gelar S.Tr.P. Mohon doanya agar penelitian ke depan berjalan lancar!🎓
+        </p>
+
+        <p class="doa">
+            Wassalamu’alaikum Warahmatullahi Wabarakatuh
+        </p>
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>
