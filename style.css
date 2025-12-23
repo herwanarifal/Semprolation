@@ -88,8 +88,8 @@ button {
 
 /* FOTO UTAMA */
 .foto-utama img {
-    width: 440px;     /* 2x dari 220px */
-    height: 440px;
+    width: 220px;          /* setengah dari 440px */
+    height: 220px;
     border-radius: 50%;
     border: 8px solid #d4af37;
     margin-top: 25px;
@@ -240,3 +240,4 @@ form button {
         max-width: 95%;
     }
 }
+
