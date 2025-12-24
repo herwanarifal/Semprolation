@@ -78,7 +78,7 @@ body {
     border-radius: 28px;
     max-width: 720px;
     width: 100%;
-    text-align: center;
+    text-align: left; /* RATA KIRI untuk label/value */
     box-shadow: 0 20px 45px rgba(0,0,0,.15);
 }
 
@@ -107,19 +107,17 @@ h1 {
 
 .proposal .row {
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 8px;
 }
 
 .proposal .label {
-    width: 160px;       /* lebar tetap label */
-    text-align: right;
+    width: 160px;
     font-weight: 600;
     white-space: nowrap;
 }
 
 .proposal .colon {
-    width: 20px;        /* jarak antara label dan value */
+    width: 20px;
     text-align: center;
     font-weight: 600;
 }
@@ -128,7 +126,7 @@ h1 {
     flex: 1;
     font-weight: 600;
     word-break: break-word;
-    line-height: 1.5;   /* agar wrap rapi */
+    line-height: 1.5;
 }
 
 /* =============================== */
