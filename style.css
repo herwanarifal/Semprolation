@@ -111,7 +111,8 @@ h1 {
     display: table-row;
 }
 
-.proposal .label, .proposal .value {
+.proposal .label,
+.proposal .value {
     display: table-cell;
     padding: 6px 12px;
     vertical-align: top;
@@ -127,6 +128,8 @@ h1 {
 .proposal .value {
     font-weight: 600;
     word-break: break-word;
+    /* Membuat teks Judul Proposal panjang tetap sejajar dengan value */
+    line-height: 1.5;
 }
 
 /* =============================== */
@@ -200,7 +203,6 @@ button {
 /* RESPONSIVE HP                   */
 /* =============================== */
 @media (max-width: 600px) {
-
     .slide {
         min-height: auto;
         padding: 50px 16px;
