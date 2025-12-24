@@ -25,10 +25,14 @@ body.lock {
 /* =============================== */
 #flowers {
     position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(circle at bottom, #fdeff2, #f7d7e8);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
 }
+
 
 /* =============================== */
 /* COVER (LAYAR PEMBUKA)           */
@@ -227,3 +231,4 @@ button {
         transform: scale(1.05);
     }
 }
+
