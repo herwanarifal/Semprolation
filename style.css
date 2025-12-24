@@ -98,38 +98,35 @@ h1 {
 }
 
 /* =============================== */
-/* DATA MAHASISWA (ANTI KACAU)     */
+/* DATA MAHASISWA / PROPOSAL       */
 /* =============================== */
-.data-mahasiswa {
-    margin-top: 22px;
-    font-size: 15px;
+.proposal {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.data-mahasiswa .item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    flex-wrap: wrap; /* penting agar tetap rapi di HP */
+.proposal .row {
+    display: table-row;
 }
 
-.data-mahasiswa .label {
+.proposal .label, .proposal .value {
+    display: table-cell;
+    padding: 6px 12px;
+    vertical-align: top;
+}
+
+.proposal .label {
     width: 160px;
     font-weight: 600;
-    color: #444;
-    flex-shrink: 0;
+    text-align: right;
+    white-space: nowrap;
 }
 
-.data-mahasiswa .label::after {
-    content: " :";
-}
-
-.data-mahasiswa .value {
-    flex: 1;
+.proposal .value {
     font-weight: 600;
-    line-height: 1.5;
-    min-width: 0; /* agar word-break bekerja */
     word-break: break-word;
-    overflow-wrap: break-word;
 }
 
 /* =============================== */
@@ -173,14 +170,14 @@ h1 {
 /* =============================== */
 /* MAP                             */
 /* =============================== */
-.map-wrapper {
+.map-box {
     margin-top: 25px;
     border-radius: 22px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,.2);
 }
 
-.map-wrapper iframe {
+.map-box iframe {
     width: 100%;
     height: 300px;
     border: 0;
@@ -200,12 +197,9 @@ button {
 }
 
 /* =============================== */
-/* RESPONSIVE HP & SAFARI          */
+/* RESPONSIVE HP                   */
 /* =============================== */
 @media (max-width: 600px) {
-    body {
-        scroll-snap-type: none;
-    }
 
     .slide {
         min-height: auto;
@@ -217,12 +211,12 @@ button {
         border-radius: 22px;
     }
 
-    .data-mahasiswa .label {
+    .proposal .label {
         width: 140px;
         font-size: 14px;
     }
 
-    .data-mahasiswa .value {
+    .proposal .value {
         font-size: 14px;
     }
 
@@ -231,7 +225,7 @@ button {
         height: 230px;
     }
 
-    .map-wrapper iframe {
+    .map-box iframe {
         height: 240px;
     }
 }
