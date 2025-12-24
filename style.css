@@ -101,35 +101,34 @@ h1 {
 /* DATA MAHASISWA / PROPOSAL       */
 /* =============================== */
 .proposal {
-    display: table;
     width: 100%;
-    border-collapse: collapse;
     margin-top: 20px;
 }
 
 .proposal .row {
-    display: table-row;
-}
-
-.proposal .label,
-.proposal .value {
-    display: table-cell;
-    padding: 6px 12px;
-    vertical-align: top;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
 }
 
 .proposal .label {
-    width: 160px;
-    font-weight: 600;
+    width: 160px;       /* lebar tetap label */
     text-align: right;
+    font-weight: 600;
     white-space: nowrap;
 }
 
+.proposal .colon {
+    width: 20px;        /* jarak antara label dan value */
+    text-align: center;
+    font-weight: 600;
+}
+
 .proposal .value {
+    flex: 1;
     font-weight: 600;
     word-break: break-word;
-    /* Membuat teks Judul Proposal panjang tetap sejajar dengan value */
-    line-height: 1.5;
+    line-height: 1.5;   /* agar wrap rapi */
 }
 
 /* =============================== */
@@ -215,6 +214,11 @@ button {
 
     .proposal .label {
         width: 140px;
+        font-size: 14px;
+    }
+
+    .proposal .colon {
+        width: 16px;
         font-size: 14px;
     }
 
