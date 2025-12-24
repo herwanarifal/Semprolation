@@ -8,89 +8,29 @@ const music = document.getElementById("musik");
 const musicBtn = document.getElementById("musicBtn");
 
 /* =============================== */
-/* CANVAS FLOWERS                  */
-/* =============================== */
-const canvas = document.getElementById("flowers");
-const ctx = canvas.getContext("2d");
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-/* =============================== */
-/* BUNGA SEDERHANA (DEMO)          */
-/* =============================== */
-let flowers = [];
-
-for (let i = 0; i < 40; i++) {
-    flowers.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 3 + 1,
-        speed: Math.random() * 0.5 + 0.2
-    });
-}
-
-function drawFlowers() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "rgba(212,175,55,0.5)";
-
-    flowers.forEach(f => {
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        f.y += f.speed;
-        if (f.y > canvas.height) {
-            f.y = -10;
-            f.x = Math.random() * canvas.width;
-        }
-    });
-
-    requestAnimationFrame(drawFlowers);
-}
-drawFlowers();
-
-/* =============================== */
-/* SAAT HALAMAN LOAD               */
+/* KUNCI SCROLL SAAT LOAD          */
 /* =============================== */
 document.addEventListener("DOMContentLoaded", () => {
-    // Kunci scroll
     body.classList.add("lock");
-
-    // Sembunyikan semua slide
-    slides.forEach(slide => {
-        slide.classList.remove("show");
-    });
+    slides.forEach(slide => slide.classList.remove("show"));
 });
 
 /* =============================== */
 /* BUKA UNDANGAN                   */
 /* =============================== */
 function bukaUndangan() {
-    // Animasi cover keluar
     cover.classList.add("hide");
-
-    // Buka scroll
     body.classList.remove("lock");
 
-    // Hapus cover setelah animasi
     setTimeout(() => {
         cover.style.display = "none";
     }, 600);
 
-    // Tampilkan slide pertama
-    setTimeout(() => {
-        slides[0].classList.add("show");
-    }, 700);
+    slides.forEach((slide, i) => {
+        setTimeout(() => slide.classList.add("show"), i * 200);
+    });
 
-    // Autoplay musik
-    if (music) {
-        music.play().catch(() => {});
-    }
+    if (music) music.play().catch(() => {});
 }
 
 /* =============================== */
@@ -102,22 +42,106 @@ function toggleMusic() {
     if (music.paused) {
         music.play();
         musicBtn.textContent = "🔊";
-        musicBtn.classList.remove("pause");
     } else {
         music.pause();
         musicBtn.textContent = "🔇";
-        musicBtn.classList.add("pause");
     }
 }
 
 /* =============================== */
-/* ANIMASI SAAT SCROLL             */
+/* ANIMASI SLIDE SAAT SCROLL       */
 /* =============================== */
 window.addEventListener("scroll", () => {
     slides.forEach(slide => {
         const rect = slide.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
+        if (rect.top < window.innerHeight - 100) {
             slide.classList.add("show");
         }
     });
 });
+
+/* ================================================= */
+/* 🌸 BACKGROUND KELopak SAKURA JATUH                */
+/* ================================================= */
+const canvas = document.getElementById("flowers");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+function resizeCanvas() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const petals = [];
+const PETAL_COUNT = 45;
+
+class SakuraPetal {
+    constructor() {
+        this.reset();
+        this.y = Math.random() * h;
+    }
+
+    reset() {
+        this.x = Math.random() * w;
+        this.y = -30;
+        this.size = Math.random() * 8 + 12;
+        this.speedY = Math.random() * 1 + 0.6;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.rotate = Math.random() * Math.PI * 2;
+        this.rotateSpeed = Math.random() * 0.02 - 0.01;
+        this.opacity = Math.random() * 0.5 + 0.5;
+    }
+
+    update() {
+        this.y += this.speedY;
+        this.x += Math.sin(this.y * 0.01) + this.speedX;
+        this.rotate += this.rotateSpeed;
+
+        if (this.y > h + 40) this.reset();
+    }
+
+    draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotate);
+        ctx.globalAlpha = this.opacity;
+
+        ctx.fillStyle = "#f6b1c3";
+        ctx.beginPath();
+
+        // BENTUK KELopak SAKURA (BUKAN BULAT)
+        ctx.moveTo(0, -this.size);
+        ctx.bezierCurveTo(
+            this.size * 0.8, -this.size * 0.6,
+            this.size * 0.8, this.size * 0.6,
+            0, this.size
+        );
+        ctx.bezierCurveTo(
+            -this.size * 0.8, this.size * 0.6,
+            -this.size * 0.8, -this.size * 0.6,
+            0, -this.size
+        );
+
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+/* =============================== */
+/* START SAKURA                    */
+/* =============================== */
+for (let i = 0; i < PETAL_COUNT; i++) {
+    petals.push(new SakuraPetal());
+}
+
+function animateSakura() {
+    ctx.clearRect(0, 0, w, h);
+    petals.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animateSakura);
+}
+animateSakura();
