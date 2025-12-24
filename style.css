@@ -12,6 +12,7 @@
 /* BODY                            */
 /* =============================== */
 body {
+    position: relative;
     background: #fdeff2;
     scroll-snap-type: y mandatory;
 }
@@ -21,18 +22,16 @@ body.lock {
 }
 
 /* =============================== */
-/* BACKGROUND                      */
+/* BACKGROUND CANVAS (BUNGA)       */
 /* =============================== */
 #flowers {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     z-index: 0;
     pointer-events: none;
 }
-
 
 /* =============================== */
 /* COVER (LAYAR PEMBUKA)           */
@@ -40,11 +39,11 @@ body.lock {
 .cover {
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(253,239,242,0.98);
+    background: rgba(253,239,242,0.95);
     animation: coverIn .6s ease forwards;
 }
 
@@ -64,6 +63,9 @@ body.lock {
     padding: 40px 20px;
     scroll-snap-align: start;
 
+    position: relative;
+    z-index: 2;
+
     opacity: 0;
     transform: translateY(40px);
     transition: all .8s ease;
@@ -75,14 +77,14 @@ body.lock {
 }
 
 .slide.alt {
-    background: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.15);
 }
 
 /* =============================== */
 /* BOX                             */
 /* =============================== */
 .box {
-    background: rgba(255,255,255,0.97);
+    background: rgba(255,255,255,0.88);
     padding: 45px 30px;
     border-radius: 30px;
     max-width: 720px;
@@ -107,7 +109,7 @@ h1 {
 }
 
 /* =============================== */
-/* DATA MAHASISWA (RAPI SEJAJAR)   */
+/* DATA MAHASISWA                  */
 /* =============================== */
 .data-mahasiswa {
     margin-top: 15px;
@@ -120,7 +122,6 @@ h1 {
     grid-template-columns: 160px 10px 1fr;
     gap: 6px;
     margin-bottom: 8px;
-    align-items: start;
 }
 
 .data-mahasiswa .key {
@@ -163,7 +164,7 @@ button {
 }
 
 /* =============================== */
-/* GALERI FOTO                     */
+/* GALERI                          */
 /* =============================== */
 .galeri {
     display: flex;
@@ -186,7 +187,7 @@ button {
 }
 
 /* =============================== */
-/* RESPONSIVE (HP)                 */
+/* RESPONSIVE                      */
 /* =============================== */
 @media (max-width: 600px) {
     .box {
@@ -231,4 +232,3 @@ button {
         transform: scale(1.05);
     }
 }
-
