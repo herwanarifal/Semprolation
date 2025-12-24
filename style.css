@@ -3,6 +3,7 @@
 /* =============================== */
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -20,7 +21,7 @@ body {
 }
 
 /* =============================== */
-/* BACKGROUND PARTIKEL             */
+/* BACKGROUND                      */
 /* =============================== */
 #flowers {
     position: fixed;
@@ -49,11 +50,11 @@ body {
 /* SLIDE                           */
 /* =============================== */
 .slide {
-    display: none;
     min-height: 100vh;
-    scroll-snap-align: start;
+    display: flex;
     justify-content: center;
     align-items: center;
+    scroll-snap-align: start;
     padding: 40px 20px;
 }
 
@@ -86,38 +87,40 @@ h1 {
     font-size: 26px;
     color: #d4af37;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 15px 0 25px;
 }
 
 /* =============================== */
-/* DATA MAHASISWA (SEJAJAR FIX)    */
+/* DATA MAHASISWA (FIX TOTAL)      */
 /* =============================== */
 .data-mahasiswa {
-    margin-top: 12px;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto 25px;
     font-size: 15px;
     text-align: left;
 }
 
 .data-mahasiswa .item {
     display: grid;
-    grid-template-columns: 150px 10px 1fr;
+    grid-template-columns: 170px 15px 1fr;
     gap: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     align-items: start;
 }
 
 .data-mahasiswa .key {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .data-mahasiswa .colon {
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .data-mahasiswa .value {
-    font-weight: 600;
-    line-height: 1.5;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 /* =============================== */
@@ -137,11 +140,11 @@ button {
 /* FOTO UTAMA                      */
 /* =============================== */
 .foto-utama img {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    border: 8px solid #d4af37;
-    margin-top: 25px;
+    border: 7px solid #d4af37;
+    margin-top: 20px;
     object-fit: cover;
     box-shadow: 0 15px 35px rgba(0,0,0,.25);
 }
@@ -157,8 +160,8 @@ button {
 }
 
 .galeri img {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
     border-radius: 22px;
     object-fit: cover;
     flex-shrink: 0;
@@ -180,20 +183,6 @@ button {
     flex-wrap: wrap;
 }
 
-.time-box {
-    background: #fff;
-    padding: 15px 10px;
-    border-radius: 18px;
-    min-width: 85px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.1);
-}
-
-.time-box span {
-    font-size: 28px;
-    color: #d4af37;
-    font-weight: bold;
-}
-
 /* =============================== */
 /* MAP                             */
 /* =============================== */
@@ -208,24 +197,6 @@ button {
     width: 100%;
     height: 260px;
     border: none;
-}
-
-/* =============================== */
-/* FORM                            */
-/* =============================== */
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-}
-
-textarea {
-    min-height: 90px;
 }
 
 /* =============================== */
@@ -255,20 +226,20 @@ textarea {
     z-index: 99;
 }
 
-.music-btn.pause {
-    background: #999;
-}
-
 /* =============================== */
-/* RESPONSIVE (AMAN)               */
+/* RESPONSIVE (TETAP SEJAJAR)      */
 /* =============================== */
 @media (max-width: 600px) {
     .box {
-        padding: 35px 20px;
+        padding: 30px 18px;
+    }
+
+    .data-mahasiswa .item {
+        grid-template-columns: 130px 12px 1fr;
     }
 
     .galeri img {
-        width: 240px;
-        height: 240px;
+        width: 220px;
+        height: 220px;
     }
 }
