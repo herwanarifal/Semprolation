@@ -41,22 +41,33 @@ body.lock {
     justify-content: center;
     align-items: center;
     background: rgba(253,239,242,0.98);
+    animation: coverIn .6s ease forwards;
 }
 
 .cover.hide {
-    display: none;
+    animation: coverOut .6s ease forwards;
+    pointer-events: none;
 }
 
 /* =============================== */
-/* SLIDE (HARUS LANGSUNG TAMPIL)   */
+/* SLIDE                           */
 /* =============================== */
 .slide {
     min-height: 100vh;
-    display: flex;                 /* ← PENTING */
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
     scroll-snap-align: start;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all .8s ease;
+}
+
+.slide.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .slide.alt {
@@ -92,7 +103,7 @@ h1 {
 }
 
 /* =============================== */
-/* DATA MAHASISWA (SEJAJAR RAPI)   */
+/* DATA MAHASISWA (RAPI SEJAJAR)   */
 /* =============================== */
 .data-mahasiswa {
     margin-top: 15px;
@@ -171,7 +182,7 @@ button {
 }
 
 /* =============================== */
-/* RESPONSIVE                      */
+/* RESPONSIVE (HP)                 */
 /* =============================== */
 @media (max-width: 600px) {
     .box {
@@ -189,5 +200,30 @@ button {
     .galeri img {
         width: 240px;
         height: 240px;
+    }
+}
+
+/* =============================== */
+/* ANIMASI COVER                   */
+/* =============================== */
+@keyframes coverIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes coverOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1.05);
     }
 }
