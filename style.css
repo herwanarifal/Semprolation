@@ -22,7 +22,7 @@ body.lock {
 }
 
 /* =============================== */
-/* BACKGROUND CANVAS (BUNGA)       */
+/* BACKGROUND CANVAS (SAKURA)      */
 /* =============================== */
 #flowers {
     position: fixed;
@@ -34,7 +34,7 @@ body.lock {
 }
 
 /* =============================== */
-/* COVER (LAYAR PEMBUKA)           */
+/* COVER                           */
 /* =============================== */
 .cover {
     position: fixed;
@@ -84,7 +84,7 @@ body.lock {
 /* BOX                             */
 /* =============================== */
 .box {
-    background: rgba(255,255,255,0.88);
+    background: rgba(255,255,255,0.9);
     padding: 45px 30px;
     border-radius: 30px;
     max-width: 720px;
@@ -109,7 +109,7 @@ h1 {
 }
 
 /* =============================== */
-/* DATA MAHASISWA                  */
+/* DATA MAHASISWA (STABIL)         */
 /* =============================== */
 .data-mahasiswa {
     margin-top: 15px;
@@ -119,13 +119,15 @@ h1 {
 
 .data-mahasiswa .item {
     display: grid;
-    grid-template-columns: 160px 10px 1fr;
+    grid-template-columns: 150px 12px 1fr;
     gap: 6px;
     margin-bottom: 8px;
+    align-items: start;
 }
 
 .data-mahasiswa .key {
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .data-mahasiswa .colon {
@@ -135,6 +137,7 @@ h1 {
 .data-mahasiswa .value {
     font-weight: 600;
     line-height: 1.5;
+    word-break: break-word;
 }
 
 /* =============================== */
@@ -187,19 +190,19 @@ button {
 }
 
 /* =============================== */
-/* RESPONSIVE                      */
+/* RESPONSIVE (HP AMAN)            */
 /* =============================== */
 @media (max-width: 600px) {
     .box {
-        padding: 35px 20px;
+        padding: 30px 18px;
+    }
+
+    .data-mahasiswa {
+        font-size: 14px;
     }
 
     .data-mahasiswa .item {
-        grid-template-columns: 1fr;
-    }
-
-    .data-mahasiswa .colon {
-        display: none;
+        grid-template-columns: 110px 10px 1fr;
     }
 
     .galeri img {
